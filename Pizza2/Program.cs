@@ -11,7 +11,7 @@ namespace Pizza2
         public static string userName = "";
         /// <summary>
         /// Point d'entrée principal de l'application.
-        /// </summary>
+        /// </summary> test
         [STAThread]
         static void Main()
         {
