@@ -8,10 +8,11 @@ namespace Pizza2
 {
     class DAL
     {
+        public static List<Pizza> PizzasAImporter = new List<Pizza>();
+
         public static List<Pizza> ImportPizza()
         {
-            List<Pizza> PizzasAImporter = new List<Pizza>();
-
+            
             Pizza regina = new Pizza("Regina", 12.20f);
             Pizza napolitaine = new Pizza("Napolitaine", 13.20f);
             Pizza orientale = new Pizza("Orientale", 15.20f);

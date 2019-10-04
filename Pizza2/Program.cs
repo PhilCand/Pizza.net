@@ -11,13 +11,13 @@ namespace Pizza2
         public static string userName = "";
         /// <summary>
         /// Point d'entrée principal de l'application.
-        /// </summary> test
+        /// </summary>
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+            DAL.ImportPizza();            
             DialogResult result = DialogResult.No;            
             using (var loginForm = new LoginForm())
 

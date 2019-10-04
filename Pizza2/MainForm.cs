@@ -12,11 +12,11 @@ namespace Pizza2
 {
     public partial class MainForm : Form
     {
+        public ListBox ListBoxPizza { get => listBoxPizza; set => listBoxPizza = value; } 
+
         public MainForm()
         {
-            InitializeComponent();
-            //this.Text = $"{Program.userName} + nombre de commandes : {nbCommandes} prix total : {prixTotal}";
-            
+            InitializeComponent();            
         }
 
         static List<Produit> listeProduits = new List<Produit>();
@@ -26,6 +26,10 @@ namespace Pizza2
 
         private void btnNouvelleRecette_Click(object sender, EventArgs e)
         {
+            NewPizzaForm newPizzaForm = new NewPizzaForm();
+            newPizzaForm.ShowDialog();
+            listBoxPizza.Items.Clear();            
+            listBoxPizza.Items.AddRange(DAL.PizzasAImporter.ToArray());
             
         }
 
@@ -46,9 +50,9 @@ namespace Pizza2
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            List<Pizza> MenuPizza = DAL.ImportPizza();
+            //List<Pizza> MenuPizza = DAL.ImportPizza();
 
-            foreach (Pizza pizza in MenuPizza)
+            foreach (Pizza pizza in DAL.PizzasAImporter)
             {
                 listBoxPizza.Items.Add(pizza);
             }
