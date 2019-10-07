@@ -29,8 +29,7 @@ namespace Pizza2
             NewPizzaForm newPizzaForm = new NewPizzaForm();
             newPizzaForm.ShowDialog();
             listBoxPizza.Items.Clear();            
-            listBoxPizza.Items.AddRange(DAL.PizzasAImporter.ToArray());
-            
+            listBoxPizza.Items.AddRange(DAL.PizzasAImporter.ToArray());  
         }
 
         private void btnDetailPizza_Click(object sender, EventArgs e)
@@ -38,28 +37,14 @@ namespace Pizza2
             MessageBox.Show(((Pizza)listBoxPizza.SelectedItem).AfficherIngredients(), ((Pizza)listBoxPizza.SelectedItem).Nom);
         }
 
-        private void listBoxIngredients_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //List<Pizza> MenuPizza = DAL.ImportPizza();
-
             foreach (Pizza pizza in DAL.PizzasAImporter)
             {
                 listBoxPizza.Items.Add(pizza);
             }
 
-            List<Boisson> MenuBoisson = DAL.ImportBoisson();
-
-            foreach (Boisson boisson in MenuBoisson)
+            foreach (Boisson boisson in DAL.BoissonsAImporter)
             {
                 listBoxBoisson.Items.Add(boisson);
             }
@@ -67,14 +52,14 @@ namespace Pizza2
             if (listBoxPizza.Items.Count > 0) listBoxPizza.SelectedIndex = 0;
 
             if (listBoxBoisson.Items.Count > 0) listBoxBoisson.SelectedIndex = 0;
-
         }
 
         private void btnNouvelleBoisson_Click(object sender, EventArgs e)
         {
-           
-
-
+            NewBoissonForm newBoissonForm = new NewBoissonForm();
+            newBoissonForm.ShowDialog();
+            listBoxBoisson.Items.Clear();
+            listBoxBoisson.Items.AddRange(DAL.BoissonsAImporter.ToArray());
         }
 
         private void changerUtilisateurToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,16 +81,9 @@ namespace Pizza2
                 }
         }
 
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAjouterPizza_Click(object sender, EventArgs e)
-        {
-            
-            PizzaCommandee pizzaAjoute = new PizzaCommandee(((Pizza)listBoxPizza.SelectedItem).Nom, ((Pizza)listBoxPizza.SelectedItem).Prix);
-            
+        {            
+            PizzaCommandee pizzaAjoute = new PizzaCommandee(((Pizza)listBoxPizza.SelectedItem).Nom, ((Pizza)listBoxPizza.SelectedItem).Prix);            
             listBoxPizza.ClearSelected();
 
             if (radioButtonSmall.Checked == true)
@@ -173,7 +151,6 @@ namespace Pizza2
 
         private void btnAjouterBoisson_Click(object sender, EventArgs e)
         {
-
             Boisson boissonAjoute = new Boisson(((Boisson)listBoxBoisson.SelectedItem).Nom, ((Boisson)listBoxBoisson.SelectedItem).Prix);
             
             listeProduits.Add(boissonAjoute);
@@ -195,7 +172,7 @@ namespace Pizza2
                 listBoxRecapCommande.Items.Remove(listBoxRecapCommande.SelectedItem);
                 txtTotalCdeEnCours.Text = total.ToString();
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Selectionner un élément à supprimer", "Erreur");
             }
@@ -234,9 +211,8 @@ namespace Pizza2
             listBoxRecapCommande.Items.Clear();
             listeProduits.Clear();
 
-            txtNbCde.Text = (++nbCommandes).ToString();
+
             prixTotal += nouvelleCommande.PrixCommande;
-            txtTotalCde.Text = prixTotal.ToString();
 
             this.Text = $"{Program.userName} + nombre de commandes : {listeCommandes.Count} prix total : {prixTotal}";
         }
@@ -271,7 +247,6 @@ namespace Pizza2
             txtHistoPrix.Text = ((Commande)listBoxHistoCdes.SelectedItem).PrixCommande.ToString();
             }
         }
-
         private void buttonSuppCde_Click(object sender, EventArgs e)
         {
 
@@ -279,22 +254,18 @@ namespace Pizza2
             {
                 int index = listBoxHistoCdes.SelectedIndex;
                 prixTotal -= listeCommandes[index].PrixCommande;
-                txtTotalCde.Text = prixTotal.ToString();
                 listBoxHistoCdes.ClearSelected();
                 listBoxHistoCdes.Items.RemoveAt(index);
                 listeCommandes.RemoveAt(index);
-
                 listBoxHistoContenuCde.Items.Clear();
-                txtNbCde.Text = (--nbCommandes).ToString();
-
+                
                 this.Text = $"{Program.userName} + nombre de commandes : {listeCommandes.Count} prix total : {prixTotal}";
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Selectionner un element à supprimer", "Erreur");
             }
         }
-
         private void MainForm_Activated(object sender, EventArgs e)
         {
             this.Text = $"{Program.userName} + nombre de commandes : {listeCommandes.Count} prix total : {prixTotal}";

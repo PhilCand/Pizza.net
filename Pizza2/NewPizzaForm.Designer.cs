@@ -1,4 +1,6 @@
-﻿namespace Pizza2
+﻿using System.Windows.Forms;
+
+namespace Pizza2
 {
     partial class NewPizzaForm
     {
@@ -51,16 +53,17 @@
             this.btnCreerPizza.Location = new System.Drawing.Point(257, 233);
             this.btnCreerPizza.Name = "btnCreerPizza";
             this.btnCreerPizza.Size = new System.Drawing.Size(131, 23);
-            this.btnCreerPizza.TabIndex = 0;
+            this.btnCreerPizza.TabIndex = 4;
             this.btnCreerPizza.Text = "Creer pizza";
             this.btnCreerPizza.UseVisualStyleBackColor = true;
+            this.btnCreerPizza.Click += new System.EventHandler(this.btnCreerPizza_Click);
             // 
             // txtNomPizza
             // 
             this.txtNomPizza.Location = new System.Drawing.Point(132, 41);
             this.txtNomPizza.Name = "txtNomPizza";
             this.txtNomPizza.Size = new System.Drawing.Size(100, 20);
-            this.txtNomPizza.TabIndex = 1;
+            this.txtNomPizza.TabIndex = 0;
             // 
             // label1
             // 
@@ -92,7 +95,7 @@
             this.txtIngredient.Location = new System.Drawing.Point(132, 121);
             this.txtIngredient.Name = "txtIngredient";
             this.txtIngredient.Size = new System.Drawing.Size(100, 20);
-            this.txtIngredient.TabIndex = 1;
+            this.txtIngredient.TabIndex = 2;
             // 
             // label3
             // 
@@ -108,9 +111,10 @@
             this.btnAjouterIngredient.Location = new System.Drawing.Point(132, 147);
             this.btnAjouterIngredient.Name = "btnAjouterIngredient";
             this.btnAjouterIngredient.Size = new System.Drawing.Size(100, 23);
-            this.btnAjouterIngredient.TabIndex = 0;
+            this.btnAjouterIngredient.TabIndex = 3;
             this.btnAjouterIngredient.Text = "Ajouter ingredient";
             this.btnAjouterIngredient.UseVisualStyleBackColor = true;
+            this.btnAjouterIngredient.Click += new System.EventHandler(this.btnAjouterIngredient_Click);
             // 
             // listBoxIngredients
             // 
@@ -133,7 +137,7 @@
             this.btnSuppPizza.Location = new System.Drawing.Point(504, 264);
             this.btnSuppPizza.Name = "btnSuppPizza";
             this.btnSuppPizza.Size = new System.Drawing.Size(131, 23);
-            this.btnSuppPizza.TabIndex = 0;
+            this.btnSuppPizza.TabIndex = 5;
             this.btnSuppPizza.Text = "Supprimer pizza";
             this.btnSuppPizza.UseVisualStyleBackColor = true;
             this.btnSuppPizza.Click += new System.EventHandler(this.btnSuppPizza_Click);
@@ -180,7 +184,7 @@
             this.btnRetour.Location = new System.Drawing.Point(560, 321);
             this.btnRetour.Name = "btnRetour";
             this.btnRetour.Size = new System.Drawing.Size(75, 23);
-            this.btnRetour.TabIndex = 9;
+            this.btnRetour.TabIndex = 6;
             this.btnRetour.Text = "Retour";
             this.btnRetour.UseVisualStyleBackColor = true;
             this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
@@ -222,5 +226,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnRetour;
+
     }
 }

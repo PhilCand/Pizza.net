@@ -9,8 +9,9 @@ namespace Pizza2
     class DAL
     {
         public static List<Pizza> PizzasAImporter = new List<Pizza>();
+        public static List<Boisson> BoissonsAImporter = new List<Boisson>();
 
-        public static List<Pizza> ImportPizza()
+        public static void ImportPizza()
         {
             
             Pizza regina = new Pizza("Regina", 12.20f);
@@ -33,13 +34,12 @@ namespace Pizza2
             PizzasAImporter.Add(napolitaine);
             PizzasAImporter.Add(orientale);
 
-            return PizzasAImporter;
+            //return PizzasAImporter;
 
         }
 
-        public static List<Boisson> ImportBoisson()
+        public static void ImportBoisson()
         {
-            List<Boisson> BoissonsAImporter = new List<Boisson>();
 
             Boisson coca = new Boisson("Coca", 1);
             Boisson sprite = new Boisson("Sprite", 1);
@@ -55,7 +55,7 @@ namespace Pizza2
             BoissonsAImporter.Add(fantaGrenadine);
             BoissonsAImporter.Add(Eau);
 
-            return BoissonsAImporter;
+            //return BoissonsAImporter;
 
         }
 

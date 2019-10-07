@@ -56,6 +56,7 @@
             // 
             this.txtMDP.Location = new System.Drawing.Point(121, 84);
             this.txtMDP.Name = "txtMDP";
+            this.txtMDP.PasswordChar = '*';
             this.txtMDP.Size = new System.Drawing.Size(100, 20);
             this.txtMDP.TabIndex = 1;
             // 

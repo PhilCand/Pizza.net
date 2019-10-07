@@ -48,6 +48,7 @@
             this.txtCP = new System.Windows.Forms.TextBox();
             this.txtNomClient = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtTotalCdeEnCours = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.buttonSupprEnCours = new System.Windows.Forms.Button();
             this.listBoxRecapCommande = new System.Windows.Forms.ListBox();
@@ -95,11 +96,6 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changerUtilisateurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtNbCde = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtTotalCde = new System.Windows.Forms.TextBox();
-            this.txtTotalCdeEnCours = new System.Windows.Forms.TextBox();
             this.tabControlSaisiCde.SuspendLayout();
             this.tabPageSaisirCde.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -301,6 +297,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Recap commande en cours";
             // 
+            // txtTotalCdeEnCours
+            // 
+            this.txtTotalCdeEnCours.Location = new System.Drawing.Point(460, 329);
+            this.txtTotalCdeEnCours.Name = "txtTotalCdeEnCours";
+            this.txtTotalCdeEnCours.ReadOnly = true;
+            this.txtTotalCdeEnCours.Size = new System.Drawing.Size(74, 20);
+            this.txtTotalCdeEnCours.TabIndex = 5;
+            this.txtTotalCdeEnCours.Text = "0";
+            this.txtTotalCdeEnCours.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -347,7 +353,7 @@
             this.btnNouvelleBoisson.Name = "btnNouvelleBoisson";
             this.btnNouvelleBoisson.Size = new System.Drawing.Size(98, 23);
             this.btnNouvelleBoisson.TabIndex = 10;
-            this.btnNouvelleBoisson.Text = "Nouvelle boisson";
+            this.btnNouvelleBoisson.Text = "Editer boissons";
             this.btnNouvelleBoisson.UseVisualStyleBackColor = true;
             this.btnNouvelleBoisson.Click += new System.EventHandler(this.btnNouvelleBoisson_Click);
             // 
@@ -497,7 +503,7 @@
             this.btnNouvelleRecette.Name = "btnNouvelleRecette";
             this.btnNouvelleRecette.Size = new System.Drawing.Size(98, 23);
             this.btnNouvelleRecette.TabIndex = 4;
-            this.btnNouvelleRecette.Text = "Nouvelle recette";
+            this.btnNouvelleRecette.Text = "Editer pizzas";
             this.btnNouvelleRecette.UseVisualStyleBackColor = true;
             this.btnNouvelleRecette.Click += new System.EventHandler(this.btnNouvelleRecette_Click);
             // 
@@ -534,10 +540,6 @@
             // groupBox5
             // 
             this.groupBox5.AutoSize = true;
-            this.groupBox5.Controls.Add(this.txtTotalCde);
-            this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Controls.Add(this.txtNbCde);
-            this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.buttonSuppCde);
             this.groupBox5.Controls.Add(this.label22);
             this.groupBox5.Controls.Add(this.txtHistoPrix);
@@ -550,7 +552,6 @@
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Detail commande";
-            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // buttonSuppCde
             // 
@@ -775,50 +776,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(540, 32);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 13);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Nombre de commandes :";
-            // 
-            // txtNbCde
-            // 
-            this.txtNbCde.Location = new System.Drawing.Point(671, 29);
-            this.txtNbCde.Name = "txtNbCde";
-            this.txtNbCde.ReadOnly = true;
-            this.txtNbCde.Size = new System.Drawing.Size(100, 20);
-            this.txtNbCde.TabIndex = 26;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(777, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 13);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Total des commandes :";
-            // 
-            // txtTotalCde
-            // 
-            this.txtTotalCde.Location = new System.Drawing.Point(900, 29);
-            this.txtTotalCde.Name = "txtTotalCde";
-            this.txtTotalCde.ReadOnly = true;
-            this.txtTotalCde.Size = new System.Drawing.Size(100, 20);
-            this.txtTotalCde.TabIndex = 26;
-            // 
-            // txtTotalCdeEnCours
-            // 
-            this.txtTotalCdeEnCours.Location = new System.Drawing.Point(460, 329);
-            this.txtTotalCdeEnCours.Name = "txtTotalCdeEnCours";
-            this.txtTotalCdeEnCours.ReadOnly = true;
-            this.txtTotalCdeEnCours.Size = new System.Drawing.Size(74, 20);
-            this.txtTotalCdeEnCours.TabIndex = 5;
-            this.txtTotalCdeEnCours.Text = "0";
-            this.txtTotalCdeEnCours.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -920,10 +877,6 @@
         private System.Windows.Forms.TextBox txtHistoPrix;
         private System.Windows.Forms.Button btnNouvelleBoisson;
         private System.Windows.Forms.ListBox listBoxBoisson;
-        private System.Windows.Forms.TextBox txtNbCde;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTotalCde;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTotalCdeEnCours;
     }
 }
