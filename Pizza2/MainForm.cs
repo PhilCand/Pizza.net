@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace Pizza2
 {
@@ -21,8 +23,7 @@ namespace Pizza2
 
         static List<Produit> listeProduits = new List<Produit>();
         static List<Commande> listeCommandes = new List<Commande>();
-        static float prixTotal = 0;
-        static int nbCommandes = 0;                
+        static float prixTotal = 0;            
 
         private void btnNouvelleRecette_Click(object sender, EventArgs e)
         {
@@ -54,6 +55,8 @@ namespace Pizza2
             if (listBoxBoisson.Items.Count > 0) listBoxBoisson.SelectedIndex = 0;
         }
 
+        
+
         private void btnNouvelleBoisson_Click(object sender, EventArgs e)
         {
             NewBoissonForm newBoissonForm = new NewBoissonForm();
@@ -64,21 +67,19 @@ namespace Pizza2
 
         private void changerUtilisateurToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            LoginForm.essai = 3;
             DialogResult result = DialogResult.No;
             using (var loginForm = new LoginForm())
 
                 while (LoginForm.essai > 0 && result == DialogResult.No)
                 {
                     result = loginForm.ShowDialog();
-
-
+                    
                     if (result == DialogResult.OK)
                     {
-                        // login was successful
-                        loginForm.Close();                       
-
+                        loginForm.Close();
                     }
-                }
+                }      
         }
 
         private void btnAjouterPizza_Click(object sender, EventArgs e)
@@ -249,7 +250,6 @@ namespace Pizza2
         }
         private void buttonSuppCde_Click(object sender, EventArgs e)
         {
-
             try
             {
                 int index = listBoxHistoCdes.SelectedIndex;
@@ -259,7 +259,7 @@ namespace Pizza2
                 listeCommandes.RemoveAt(index);
                 listBoxHistoContenuCde.Items.Clear();
                 
-                this.Text = $"{Program.userName} + nombre de commandes : {listeCommandes.Count} prix total : {prixTotal}";
+                this.Text = $"{Program.userName} + nombre de commandes : {listeCommandes.Count} - prix total : {prixTotal}";
             }
             catch
             {
@@ -268,7 +268,25 @@ namespace Pizza2
         }
         private void MainForm_Activated(object sender, EventArgs e)
         {
-            this.Text = $"{Program.userName} + nombre de commandes : {listeCommandes.Count} prix total : {prixTotal}";
+            this.Text = $"{Program.userName} + nombre de commandes : {listeCommandes.Count} - prix total : {prixTotal}";
+            if (Program.userName == "chef")
+            {
+                btnNouvelleRecette.Visible = true;
+                btnNouvelleBoisson.Visible = true;
+                buttonSuppCde.Visible = true;
+            }
+
+            if (Program.userName != "chef")
+            {
+                btnNouvelleRecette.Visible = false;
+                btnNouvelleBoisson.Visible = false;
+                buttonSuppCde.Visible = false;
+            }
+        }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

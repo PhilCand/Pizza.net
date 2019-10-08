@@ -40,6 +40,10 @@ namespace Pizza2
                 MessageBox.Show($"Identification incorrecte, il vous reste {essai} essai(s)");
                 DialogResult = DialogResult.No;
             }
+
+            txtMDP.Clear();
+            txtUtilisateur.Clear();
+            txtUtilisateur.Select();
                        
         }
 
@@ -50,6 +54,11 @@ namespace Pizza2
         private void btnLoginAnnuler_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

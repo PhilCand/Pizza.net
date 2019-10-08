@@ -96,6 +96,7 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changerUtilisateurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnQuitter = new System.Windows.Forms.Button();
             this.tabControlSaisiCde.SuspendLayout();
             this.tabPageSaisirCde.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -110,19 +111,18 @@
             // 
             // tabControlSaisiCde
             // 
-            this.tabControlSaisiCde.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlSaisiCde.Controls.Add(this.tabPageSaisirCde);
             this.tabControlSaisiCde.Controls.Add(this.tabPageHistoCommande);
-            this.tabControlSaisiCde.Location = new System.Drawing.Point(13, 27);
+            this.tabControlSaisiCde.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlSaisiCde.Location = new System.Drawing.Point(0, 24);
             this.tabControlSaisiCde.Name = "tabControlSaisiCde";
             this.tabControlSaisiCde.SelectedIndex = 0;
-            this.tabControlSaisiCde.Size = new System.Drawing.Size(1047, 713);
+            this.tabControlSaisiCde.Size = new System.Drawing.Size(1060, 712);
             this.tabControlSaisiCde.TabIndex = 10;
             // 
             // tabPageSaisirCde
             // 
+            this.tabPageSaisirCde.Controls.Add(this.btnQuitter);
             this.tabPageSaisirCde.Controls.Add(this.btnValiderCommande);
             this.tabPageSaisirCde.Controls.Add(this.groupBox4);
             this.tabPageSaisirCde.Controls.Add(this.groupBox3);
@@ -131,7 +131,7 @@
             this.tabPageSaisirCde.Location = new System.Drawing.Point(4, 22);
             this.tabPageSaisirCde.Name = "tabPageSaisirCde";
             this.tabPageSaisirCde.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSaisirCde.Size = new System.Drawing.Size(1039, 687);
+            this.tabPageSaisirCde.Size = new System.Drawing.Size(1052, 686);
             this.tabPageSaisirCde.TabIndex = 0;
             this.tabPageSaisirCde.Text = "Saisir commande";
             this.tabPageSaisirCde.UseVisualStyleBackColor = true;
@@ -139,7 +139,7 @@
             // btnValiderCommande
             // 
             this.btnValiderCommande.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnValiderCommande.Location = new System.Drawing.Point(853, 562);
+            this.btnValiderCommande.Location = new System.Drawing.Point(866, 561);
             this.btnValiderCommande.Name = "btnValiderCommande";
             this.btnValiderCommande.Size = new System.Drawing.Size(163, 103);
             this.btnValiderCommande.TabIndex = 7;
@@ -149,7 +149,9 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label9);
@@ -164,9 +166,9 @@
             this.groupBox4.Controls.Add(this.txtAdresse1);
             this.groupBox4.Controls.Add(this.txtCP);
             this.groupBox4.Controls.Add(this.txtNomClient);
-            this.groupBox4.Location = new System.Drawing.Point(453, 416);
+            this.groupBox4.Location = new System.Drawing.Point(451, 416);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(378, 250);
+            this.groupBox4.Size = new System.Drawing.Size(393, 249);
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Info client";
@@ -285,14 +287,16 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.txtTotalCdeEnCours);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.buttonSupprEnCours);
             this.groupBox3.Controls.Add(this.listBoxRecapCommande);
             this.groupBox3.Location = new System.Drawing.Point(451, 38);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(566, 369);
+            this.groupBox3.Size = new System.Drawing.Size(579, 368);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Recap commande en cours";
@@ -331,18 +335,20 @@
             this.listBoxRecapCommande.FormattingEnabled = true;
             this.listBoxRecapCommande.Location = new System.Drawing.Point(23, 29);
             this.listBoxRecapCommande.Name = "listBoxRecapCommande";
-            this.listBoxRecapCommande.Size = new System.Drawing.Size(512, 277);
+            this.listBoxRecapCommande.Size = new System.Drawing.Size(512, 290);
             this.listBoxRecapCommande.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.btnNouvelleBoisson);
             this.groupBox2.Controls.Add(this.listBoxBoisson);
             this.groupBox2.Controls.Add(this.btnAjouterBoisson);
             this.groupBox2.Location = new System.Drawing.Point(12, 416);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(417, 251);
+            this.groupBox2.Size = new System.Drawing.Size(430, 250);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Choix boisson";
@@ -355,6 +361,7 @@
             this.btnNouvelleBoisson.TabIndex = 10;
             this.btnNouvelleBoisson.Text = "Editer boissons";
             this.btnNouvelleBoisson.UseVisualStyleBackColor = true;
+            this.btnNouvelleBoisson.Visible = false;
             this.btnNouvelleBoisson.Click += new System.EventHandler(this.btnNouvelleBoisson_Click);
             // 
             // listBoxBoisson
@@ -377,6 +384,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btnAjouterPizza);
             this.groupBox1.Controls.Add(this.checkBoxSupOeuf);
             this.groupBox1.Controls.Add(this.checkBoxSupAnchois);
@@ -392,7 +402,7 @@
             this.groupBox1.Controls.Add(this.listBoxPizza);
             this.groupBox1.Location = new System.Drawing.Point(12, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(417, 369);
+            this.groupBox1.Size = new System.Drawing.Size(430, 368);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Choix pizza";
@@ -505,6 +515,7 @@
             this.btnNouvelleRecette.TabIndex = 4;
             this.btnNouvelleRecette.Text = "Editer pizzas";
             this.btnNouvelleRecette.UseVisualStyleBackColor = true;
+            this.btnNouvelleRecette.Visible = false;
             this.btnNouvelleRecette.Click += new System.EventHandler(this.btnNouvelleRecette_Click);
             // 
             // btnDetailPizza
@@ -532,7 +543,7 @@
             this.tabPageHistoCommande.Location = new System.Drawing.Point(4, 22);
             this.tabPageHistoCommande.Name = "tabPageHistoCommande";
             this.tabPageHistoCommande.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageHistoCommande.Size = new System.Drawing.Size(1039, 687);
+            this.tabPageHistoCommande.Size = new System.Drawing.Size(1052, 686);
             this.tabPageHistoCommande.TabIndex = 1;
             this.tabPageHistoCommande.Text = "Historique commandes";
             this.tabPageHistoCommande.UseVisualStyleBackColor = true;
@@ -548,7 +559,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(3, 319);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1033, 365);
+            this.groupBox5.Size = new System.Drawing.Size(1046, 364);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Detail commande";
@@ -556,19 +567,20 @@
             // buttonSuppCde
             // 
             this.buttonSuppCde.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSuppCde.Location = new System.Drawing.Point(867, 333);
+            this.buttonSuppCde.Location = new System.Drawing.Point(880, 332);
             this.buttonSuppCde.Name = "buttonSuppCde";
             this.buttonSuppCde.Size = new System.Drawing.Size(133, 23);
             this.buttonSuppCde.TabIndex = 2;
             this.buttonSuppCde.Text = "Supprimer";
             this.buttonSuppCde.UseVisualStyleBackColor = true;
+            this.buttonSuppCde.Visible = false;
             this.buttonSuppCde.Click += new System.EventHandler(this.buttonSuppCde_Click);
             // 
             // label22
             // 
             this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(864, 293);
+            this.label22.Location = new System.Drawing.Point(877, 292);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(55, 13);
             this.label22.TabIndex = 24;
@@ -577,7 +589,7 @@
             // txtHistoPrix
             // 
             this.txtHistoPrix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHistoPrix.Location = new System.Drawing.Point(925, 288);
+            this.txtHistoPrix.Location = new System.Drawing.Point(938, 287);
             this.txtHistoPrix.Name = "txtHistoPrix";
             this.txtHistoPrix.ReadOnly = true;
             this.txtHistoPrix.Size = new System.Drawing.Size(75, 20);
@@ -587,7 +599,7 @@
             // 
             this.listBoxHistoContenuCde.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxHistoContenuCde.FormattingEnabled = true;
-            this.listBoxHistoContenuCde.Location = new System.Drawing.Point(470, 67);
+            this.listBoxHistoContenuCde.Location = new System.Drawing.Point(483, 66);
             this.listBoxHistoContenuCde.Name = "listBoxHistoContenuCde";
             this.listBoxHistoContenuCde.Size = new System.Drawing.Size(530, 212);
             this.listBoxHistoContenuCde.TabIndex = 22;
@@ -609,7 +621,7 @@
             this.groupBox6.Controls.Add(this.txtHistoAdresse1);
             this.groupBox6.Controls.Add(this.txtHistoCP);
             this.groupBox6.Controls.Add(this.txtHistoNom);
-            this.groupBox6.Location = new System.Drawing.Point(6, 56);
+            this.groupBox6.Location = new System.Drawing.Point(6, 55);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(378, 250);
             this.groupBox6.TabIndex = 21;
@@ -741,7 +753,7 @@
             this.listBoxHistoCdes.FormattingEnabled = true;
             this.listBoxHistoCdes.Location = new System.Drawing.Point(3, 3);
             this.listBoxHistoCdes.Name = "listBoxHistoCdes";
-            this.listBoxHistoCdes.Size = new System.Drawing.Size(1033, 316);
+            this.listBoxHistoCdes.Size = new System.Drawing.Size(1046, 316);
             this.listBoxHistoCdes.TabIndex = 0;
             this.listBoxHistoCdes.SelectedIndexChanged += new System.EventHandler(this.listBoxHistoCdes_SelectedIndexChanged);
             // 
@@ -776,6 +788,16 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // btnQuitter
+            // 
+            this.btnQuitter.Location = new System.Drawing.Point(866, 505);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(162, 43);
+            this.btnQuitter.TabIndex = 21;
+            this.btnQuitter.Text = "Quitter";
+            this.btnQuitter.UseVisualStyleBackColor = true;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -783,7 +805,12 @@
             this.ClientSize = new System.Drawing.Size(1060, 736);
             this.Controls.Add(this.tabControlSaisiCde);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pizza.net";
             this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -878,6 +905,7 @@
         private System.Windows.Forms.Button btnNouvelleBoisson;
         private System.Windows.Forms.ListBox listBoxBoisson;
         private System.Windows.Forms.TextBox txtTotalCdeEnCours;
+        private System.Windows.Forms.Button btnQuitter;
     }
 }
 

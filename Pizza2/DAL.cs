@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Pizza2
 {
@@ -13,49 +14,35 @@ namespace Pizza2
 
         public static void ImportPizza()
         {
-            
-            Pizza regina = new Pizza("Regina", 12.20f);
-            Pizza napolitaine = new Pizza("Napolitaine", 13.20f);
-            Pizza orientale = new Pizza("Orientale", 15.20f);
+            XDocument docPizza = XDocument.Load(@"..\..\PizzasData.xml");
+            DAL.PizzasAImporter.Clear();
+            foreach (XElement pizza in docPizza.Element("MENU").Elements("PIZZA"))
+            {
+                List<Ingredient> ingredientsXML = new List<Ingredient>();
 
-            regina.Ingredients.Add(new Ingredient("Jambon"));
-            regina.Ingredients.Add(new Ingredient("tomate"));
-            regina.Ingredients.Add(new Ingredient("Fromage"));
+                foreach (XElement ingredient in pizza.Element("INGREDIENTS").Elements("INGREDIENT"))
+                {
+                    Ingredient ingredientXML = new Ingredient(ingredient.Value);
+                    ingredientsXML.Add(ingredientXML);
+                }
 
-            napolitaine.Ingredients.Add(new Ingredient("Oeuf"));
-            napolitaine.Ingredients.Add(new Ingredient("Parmesan"));
-            napolitaine.Ingredients.Add(new Ingredient("Bacon"));
+                Pizza pizzaXML = new Pizza(pizza.Attribute("Nom").Value, float.Parse(pizza.Attribute("Prix").Value));
+                pizzaXML.Ingredients = ingredientsXML;
 
-            orientale.Ingredients.Add(new Ingredient("Merguez"));
-            orientale.Ingredients.Add(new Ingredient("Viande hachée"));
-            orientale.Ingredients.Add(new Ingredient("Tomates"));
-
-            PizzasAImporter.Add(regina);
-            PizzasAImporter.Add(napolitaine);
-            PizzasAImporter.Add(orientale);
-
-            //return PizzasAImporter;
-
+                DAL.PizzasAImporter.Add(pizzaXML);
+            }
         }
-
+        
         public static void ImportBoisson()
         {
+            XDocument docBoisson = XDocument.Load(@"..\..\PizzasData.xml");
+            DAL.BoissonsAImporter.Clear();
+            foreach (XElement boisson in docBoisson.Element("MENU").Elements("BOISSON"))
+            {
+                Boisson boissonXML = new Boisson(boisson.Attribute("Nom").Value, float.Parse(boisson.Attribute("Prix").Value));
+                DAL.BoissonsAImporter.Add(boissonXML);
+            }
 
-            Boisson coca = new Boisson("Coca", 1);
-            Boisson sprite = new Boisson("Sprite", 1);
-            Boisson fantaOrange = new Boisson("Fanta Orange", 1);
-            Boisson fantaCitron = new Boisson("Fanta Citron", 1);
-            Boisson fantaGrenadine = new Boisson("Fanta Grenadine", 1);
-            Boisson Eau = new Boisson("Eau", 1);
-
-            BoissonsAImporter.Add(coca);
-            BoissonsAImporter.Add(sprite);
-            BoissonsAImporter.Add(fantaOrange);
-            BoissonsAImporter.Add(fantaCitron);
-            BoissonsAImporter.Add(fantaGrenadine);
-            BoissonsAImporter.Add(Eau);
-
-            //return BoissonsAImporter;
 
         }
 
