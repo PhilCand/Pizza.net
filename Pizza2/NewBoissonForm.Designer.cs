@@ -121,7 +121,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPrixBoisson);
             this.Controls.Add(this.txtNomBoisson);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "NewBoissonForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gestion des boissons";
             this.Load += new System.EventHandler(this.NewBoissonForm_Load);
             this.ResumeLayout(false);

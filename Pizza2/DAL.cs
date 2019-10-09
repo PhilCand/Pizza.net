@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Xml.Linq;
 
 namespace Pizza2
@@ -25,26 +21,61 @@ namespace Pizza2
                     Ingredient ingredientXML = new Ingredient(ingredient.Value);
                     ingredientsXML.Add(ingredientXML);
                 }
-
-                Pizza pizzaXML = new Pizza(pizza.Attribute("Nom").Value, float.Parse(pizza.Attribute("Prix").Value));
+                string prix = pizza.Attribute("Prix").Value.Replace('.', ',');
+                Pizza pizzaXML = new Pizza(pizza.Attribute("Nom").Value, float.Parse(prix));
                 pizzaXML.Ingredients = ingredientsXML;
 
                 DAL.PizzasAImporter.Add(pizzaXML);
             }
         }
-        
+
         public static void ImportBoisson()
         {
-            XDocument docBoisson = XDocument.Load(@"..\..\PizzasData.xml");
+            XDocument docBoisson = XDocument.Load(@"..\..\BoissonsData.xml");
             DAL.BoissonsAImporter.Clear();
             foreach (XElement boisson in docBoisson.Element("MENU").Elements("BOISSON"))
             {
-                Boisson boissonXML = new Boisson(boisson.Attribute("Nom").Value, float.Parse(boisson.Attribute("Prix").Value));
+                string prix = boisson.Attribute("Prix").Value.Replace('.', ',');
+                Boisson boissonXML = new Boisson(boisson.Attribute("Nom").Value, float.Parse(prix));
                 DAL.BoissonsAImporter.Add(boissonXML);
             }
-
-
         }
 
+        public static void ExportPizzasXML()
+        {
+            XDocument PizzasData = new XDocument(new XElement("MENU"));
+
+            foreach (Pizza pizza in DAL.PizzasAImporter)
+            {
+                XElement pizzaXML = (new XElement("PIZZA",
+                                     new XAttribute("Nom", pizza.Nom),
+                                     new XAttribute("Prix", pizza.Prix),
+                                     new XElement("INGREDIENTS")));
+
+                PizzasData.Root.Add(pizzaXML);
+
+                foreach (Ingredient ingredient in pizza.Ingredients)
+                {
+                    pizzaXML.Element("INGREDIENTS").Add(new XElement("INGREDIENT", ingredient));
+                }
+            }
+            PizzasData.Save(@"..\..\PizzasData.xml");
+        }
+        public static void ExportBoissonsXML()
+        {
+            XDocument BoissonsData = new XDocument(new XElement("MENU"));
+
+            foreach (Boisson boisson in DAL.BoissonsAImporter)
+            {
+                XElement boissonXML = (new XElement("BOISSON",
+                                        new XAttribute("Nom", boisson.Nom),
+                                        new XAttribute("Prix", boisson.Prix)));
+
+                BoissonsData.Root.Add(boissonXML);
+            }
+            BoissonsData.Save(@"..\..\BoissonsData.xml");
+        }
+        
     }
 }
+

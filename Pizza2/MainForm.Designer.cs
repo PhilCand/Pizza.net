@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControlSaisiCde = new System.Windows.Forms.TabControl();
             this.tabPageSaisirCde = new System.Windows.Forms.TabPage();
+            this.btnQuitter = new System.Windows.Forms.Button();
             this.btnValiderCommande = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -96,7 +97,6 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changerUtilisateurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnQuitter = new System.Windows.Forms.Button();
             this.tabControlSaisiCde.SuspendLayout();
             this.tabPageSaisirCde.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -118,7 +118,7 @@
             this.tabControlSaisiCde.Name = "tabControlSaisiCde";
             this.tabControlSaisiCde.SelectedIndex = 0;
             this.tabControlSaisiCde.Size = new System.Drawing.Size(1060, 712);
-            this.tabControlSaisiCde.TabIndex = 10;
+            this.tabControlSaisiCde.TabIndex = 20;
             // 
             // tabPageSaisirCde
             // 
@@ -136,13 +136,23 @@
             this.tabPageSaisirCde.Text = "Saisir commande";
             this.tabPageSaisirCde.UseVisualStyleBackColor = true;
             // 
+            // btnQuitter
+            // 
+            this.btnQuitter.Location = new System.Drawing.Point(866, 505);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(162, 43);
+            this.btnQuitter.TabIndex = 28;
+            this.btnQuitter.Text = "Quitter";
+            this.btnQuitter.UseVisualStyleBackColor = true;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
+            // 
             // btnValiderCommande
             // 
             this.btnValiderCommande.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnValiderCommande.Location = new System.Drawing.Point(866, 561);
             this.btnValiderCommande.Name = "btnValiderCommande";
             this.btnValiderCommande.Size = new System.Drawing.Size(163, 103);
-            this.btnValiderCommande.TabIndex = 7;
+            this.btnValiderCommande.TabIndex = 27;
             this.btnValiderCommande.Text = "Valider";
             this.btnValiderCommande.UseVisualStyleBackColor = true;
             this.btnValiderCommande.Click += new System.EventHandler(this.btnValiderCommande_Click);
@@ -169,7 +179,7 @@
             this.groupBox4.Location = new System.Drawing.Point(451, 416);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(393, 249);
-            this.groupBox4.TabIndex = 20;
+            this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Info client";
             // 
@@ -241,49 +251,49 @@
             this.txtTel.Location = new System.Drawing.Point(67, 221);
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(100, 20);
-            this.txtTel.TabIndex = 6;
+            this.txtTel.TabIndex = 26;
             // 
             // txtVille
             // 
             this.txtVille.Location = new System.Drawing.Point(67, 188);
             this.txtVille.Name = "txtVille";
             this.txtVille.Size = new System.Drawing.Size(100, 20);
-            this.txtVille.TabIndex = 5;
+            this.txtVille.TabIndex = 25;
             // 
             // txtPrenomClient
             // 
             this.txtPrenomClient.Location = new System.Drawing.Point(67, 56);
             this.txtPrenomClient.Name = "txtPrenomClient";
             this.txtPrenomClient.Size = new System.Drawing.Size(100, 20);
-            this.txtPrenomClient.TabIndex = 1;
+            this.txtPrenomClient.TabIndex = 21;
             // 
             // txtAdresse2
             // 
             this.txtAdresse2.Location = new System.Drawing.Point(67, 122);
             this.txtAdresse2.Name = "txtAdresse2";
             this.txtAdresse2.Size = new System.Drawing.Size(275, 20);
-            this.txtAdresse2.TabIndex = 3;
+            this.txtAdresse2.TabIndex = 23;
             // 
             // txtAdresse1
             // 
             this.txtAdresse1.Location = new System.Drawing.Point(67, 89);
             this.txtAdresse1.Name = "txtAdresse1";
             this.txtAdresse1.Size = new System.Drawing.Size(275, 20);
-            this.txtAdresse1.TabIndex = 2;
+            this.txtAdresse1.TabIndex = 22;
             // 
             // txtCP
             // 
             this.txtCP.Location = new System.Drawing.Point(67, 155);
             this.txtCP.Name = "txtCP";
             this.txtCP.Size = new System.Drawing.Size(100, 20);
-            this.txtCP.TabIndex = 4;
+            this.txtCP.TabIndex = 24;
             // 
             // txtNomClient
             // 
             this.txtNomClient.Location = new System.Drawing.Point(67, 23);
             this.txtNomClient.Name = "txtNomClient";
             this.txtNomClient.Size = new System.Drawing.Size(100, 20);
-            this.txtNomClient.TabIndex = 0;
+            this.txtNomClient.TabIndex = 20;
             // 
             // groupBox3
             // 
@@ -297,7 +307,7 @@
             this.groupBox3.Location = new System.Drawing.Point(451, 38);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(579, 368);
-            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Recap commande en cours";
             // 
@@ -325,7 +335,7 @@
             this.buttonSupprEnCours.Location = new System.Drawing.Point(23, 325);
             this.buttonSupprEnCours.Name = "buttonSupprEnCours";
             this.buttonSupprEnCours.Size = new System.Drawing.Size(75, 23);
-            this.buttonSupprEnCours.TabIndex = 1;
+            this.buttonSupprEnCours.TabIndex = 18;
             this.buttonSupprEnCours.Text = "Supprimer";
             this.buttonSupprEnCours.UseVisualStyleBackColor = true;
             this.buttonSupprEnCours.Click += new System.EventHandler(this.buttonSupprEnCours_Click);
@@ -336,7 +346,7 @@
             this.listBoxRecapCommande.Location = new System.Drawing.Point(23, 29);
             this.listBoxRecapCommande.Name = "listBoxRecapCommande";
             this.listBoxRecapCommande.Size = new System.Drawing.Size(512, 290);
-            this.listBoxRecapCommande.TabIndex = 0;
+            this.listBoxRecapCommande.TabIndex = 17;
             // 
             // groupBox2
             // 
@@ -349,7 +359,7 @@
             this.groupBox2.Location = new System.Drawing.Point(12, 416);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(430, 250);
-            this.groupBox2.TabIndex = 17;
+            this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Choix boisson";
             // 
@@ -358,7 +368,7 @@
             this.btnNouvelleBoisson.Location = new System.Drawing.Point(22, 206);
             this.btnNouvelleBoisson.Name = "btnNouvelleBoisson";
             this.btnNouvelleBoisson.Size = new System.Drawing.Size(98, 23);
-            this.btnNouvelleBoisson.TabIndex = 10;
+            this.btnNouvelleBoisson.TabIndex = 15;
             this.btnNouvelleBoisson.Text = "Editer boissons";
             this.btnNouvelleBoisson.UseVisualStyleBackColor = true;
             this.btnNouvelleBoisson.Visible = false;
@@ -370,14 +380,14 @@
             this.listBoxBoisson.Location = new System.Drawing.Point(22, 26);
             this.listBoxBoisson.Name = "listBoxBoisson";
             this.listBoxBoisson.Size = new System.Drawing.Size(218, 173);
-            this.listBoxBoisson.TabIndex = 10;
+            this.listBoxBoisson.TabIndex = 13;
             // 
             // btnAjouterBoisson
             // 
             this.btnAjouterBoisson.Location = new System.Drawing.Point(282, 183);
             this.btnAjouterBoisson.Name = "btnAjouterBoisson";
             this.btnAjouterBoisson.Size = new System.Drawing.Size(118, 46);
-            this.btnAjouterBoisson.TabIndex = 9;
+            this.btnAjouterBoisson.TabIndex = 14;
             this.btnAjouterBoisson.Text = "Ajouter boisson";
             this.btnAjouterBoisson.UseVisualStyleBackColor = true;
             this.btnAjouterBoisson.Click += new System.EventHandler(this.btnAjouterBoisson_Click);
@@ -403,7 +413,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 38);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(430, 368);
-            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Choix pizza";
             // 
@@ -433,7 +443,7 @@
             this.checkBoxSupAnchois.Location = new System.Drawing.Point(285, 226);
             this.checkBoxSupAnchois.Name = "checkBoxSupAnchois";
             this.checkBoxSupAnchois.Size = new System.Drawing.Size(64, 17);
-            this.checkBoxSupAnchois.TabIndex = 8;
+            this.checkBoxSupAnchois.TabIndex = 7;
             this.checkBoxSupAnchois.Text = "Anchois";
             this.checkBoxSupAnchois.UseVisualStyleBackColor = true;
             // 
@@ -443,7 +453,7 @@
             this.checkBoxSupOlives.Location = new System.Drawing.Point(285, 203);
             this.checkBoxSupOlives.Name = "checkBoxSupOlives";
             this.checkBoxSupOlives.Size = new System.Drawing.Size(55, 17);
-            this.checkBoxSupOlives.TabIndex = 8;
+            this.checkBoxSupOlives.TabIndex = 6;
             this.checkBoxSupOlives.Text = "Olives";
             this.checkBoxSupOlives.UseVisualStyleBackColor = true;
             // 
@@ -453,7 +463,7 @@
             this.checkBoxSupCapres.Location = new System.Drawing.Point(285, 180);
             this.checkBoxSupCapres.Name = "checkBoxSupCapres";
             this.checkBoxSupCapres.Size = new System.Drawing.Size(59, 17);
-            this.checkBoxSupCapres.TabIndex = 8;
+            this.checkBoxSupCapres.TabIndex = 5;
             this.checkBoxSupCapres.Text = "Capres";
             this.checkBoxSupCapres.UseVisualStyleBackColor = true;
             // 
@@ -472,7 +482,7 @@
             this.radioButtonLarge.Location = new System.Drawing.Point(282, 111);
             this.radioButtonLarge.Name = "radioButtonLarge";
             this.radioButtonLarge.Size = new System.Drawing.Size(52, 17);
-            this.radioButtonLarge.TabIndex = 6;
+            this.radioButtonLarge.TabIndex = 4;
             this.radioButtonLarge.Text = "Large";
             this.radioButtonLarge.UseVisualStyleBackColor = true;
             // 
@@ -483,7 +493,7 @@
             this.radioButtonMedium.Location = new System.Drawing.Point(282, 88);
             this.radioButtonMedium.Name = "radioButtonMedium";
             this.radioButtonMedium.Size = new System.Drawing.Size(62, 17);
-            this.radioButtonMedium.TabIndex = 6;
+            this.radioButtonMedium.TabIndex = 3;
             this.radioButtonMedium.TabStop = true;
             this.radioButtonMedium.Text = "Medium";
             this.radioButtonMedium.UseVisualStyleBackColor = true;
@@ -494,7 +504,7 @@
             this.radioButtonSmall.Location = new System.Drawing.Point(282, 65);
             this.radioButtonSmall.Name = "radioButtonSmall";
             this.radioButtonSmall.Size = new System.Drawing.Size(50, 17);
-            this.radioButtonSmall.TabIndex = 6;
+            this.radioButtonSmall.TabIndex = 2;
             this.radioButtonSmall.Text = "Small";
             this.radioButtonSmall.UseVisualStyleBackColor = true;
             // 
@@ -512,7 +522,7 @@
             this.btnNouvelleRecette.Location = new System.Drawing.Point(22, 325);
             this.btnNouvelleRecette.Name = "btnNouvelleRecette";
             this.btnNouvelleRecette.Size = new System.Drawing.Size(98, 23);
-            this.btnNouvelleRecette.TabIndex = 4;
+            this.btnNouvelleRecette.TabIndex = 11;
             this.btnNouvelleRecette.Text = "Editer pizzas";
             this.btnNouvelleRecette.UseVisualStyleBackColor = true;
             this.btnNouvelleRecette.Visible = false;
@@ -523,7 +533,7 @@
             this.btnDetailPizza.Location = new System.Drawing.Point(165, 325);
             this.btnDetailPizza.Name = "btnDetailPizza";
             this.btnDetailPizza.Size = new System.Drawing.Size(75, 23);
-            this.btnDetailPizza.TabIndex = 1;
+            this.btnDetailPizza.TabIndex = 10;
             this.btnDetailPizza.Text = "Détail";
             this.btnDetailPizza.UseVisualStyleBackColor = true;
             this.btnDetailPizza.Click += new System.EventHandler(this.btnDetailPizza_Click);
@@ -580,7 +590,7 @@
             // 
             this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(877, 292);
+            this.label22.Location = new System.Drawing.Point(877, 302);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(55, 13);
             this.label22.TabIndex = 24;
@@ -589,7 +599,7 @@
             // txtHistoPrix
             // 
             this.txtHistoPrix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHistoPrix.Location = new System.Drawing.Point(938, 287);
+            this.txtHistoPrix.Location = new System.Drawing.Point(938, 297);
             this.txtHistoPrix.Name = "txtHistoPrix";
             this.txtHistoPrix.ReadOnly = true;
             this.txtHistoPrix.Size = new System.Drawing.Size(75, 20);
@@ -599,9 +609,9 @@
             // 
             this.listBoxHistoContenuCde.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxHistoContenuCde.FormattingEnabled = true;
-            this.listBoxHistoContenuCde.Location = new System.Drawing.Point(483, 66);
+            this.listBoxHistoContenuCde.Location = new System.Drawing.Point(483, 40);
             this.listBoxHistoContenuCde.Name = "listBoxHistoContenuCde";
-            this.listBoxHistoContenuCde.Size = new System.Drawing.Size(530, 212);
+            this.listBoxHistoContenuCde.Size = new System.Drawing.Size(530, 251);
             this.listBoxHistoContenuCde.TabIndex = 22;
             // 
             // groupBox6
@@ -621,9 +631,9 @@
             this.groupBox6.Controls.Add(this.txtHistoAdresse1);
             this.groupBox6.Controls.Add(this.txtHistoCP);
             this.groupBox6.Controls.Add(this.txtHistoNom);
-            this.groupBox6.Location = new System.Drawing.Point(6, 55);
+            this.groupBox6.Location = new System.Drawing.Point(6, 40);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(378, 250);
+            this.groupBox6.Size = new System.Drawing.Size(378, 251);
             this.groupBox6.TabIndex = 21;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Info client";
@@ -787,16 +797,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // btnQuitter
-            // 
-            this.btnQuitter.Location = new System.Drawing.Point(866, 505);
-            this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.Size = new System.Drawing.Size(162, 43);
-            this.btnQuitter.TabIndex = 21;
-            this.btnQuitter.Text = "Quitter";
-            this.btnQuitter.UseVisualStyleBackColor = true;
-            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // MainForm
             // 

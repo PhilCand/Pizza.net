@@ -31,7 +31,7 @@ namespace Pizza2
 
         public override string ToString()
         {
-            return $"{Numero} - {Client.NomClient} - {Client.PrenomClient} - {Client.Adresse1Client} - {Client.Adresse2Client} - {Client.CPClient} - {Client.VilleClient} - {PrixCommande} "; //- {Contenu[0]} 
+            return $"Numero : {Numero} - Nom : {Client.NomClient} - Prenom : {Client.PrenomClient} - Adresse 1 : {Client.Adresse1Client} - Adresse 2 : {Client.Adresse2Client} - CP : {Client.CPClient} - Ville : {Client.VilleClient} - Montant :{PrixCommande} ";
         }
     }
 }

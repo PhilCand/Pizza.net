@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pizza2
@@ -33,6 +26,7 @@ namespace Pizza2
                 listBoxListeBoissonsNew.Items.Add(newBoisson);
                 txtNomBoisson.Clear();
                 txtPrixBoisson.Clear();
+                txtNomBoisson.Select();
             }
             catch
             {
@@ -47,6 +41,7 @@ namespace Pizza2
                 int index = listBoxListeBoissonsNew.SelectedIndex;
                 DAL.BoissonsAImporter.RemoveAt(index);
                 listBoxListeBoissonsNew.Items.Remove(listBoxListeBoissonsNew.SelectedItem);
+                
             }
             catch
             {
@@ -56,6 +51,7 @@ namespace Pizza2
 
         private void btnRetourBoisson_Click(object sender, EventArgs e)
         {
+            DAL.ExportBoissonsXML();
             this.Close();
         }
     }

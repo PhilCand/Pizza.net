@@ -1,36 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Linq;
 
 namespace Pizza2
 {
     public partial class MainForm : Form
     {
-        public ListBox ListBoxPizza { get => listBoxPizza; set => listBoxPizza = value; } 
+        public ListBox ListBoxPizza { get => listBoxPizza; set => listBoxPizza = value; }
 
         public MainForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         static List<Produit> listeProduits = new List<Produit>();
         static List<Commande> listeCommandes = new List<Commande>();
-        static float prixTotal = 0;            
+        static float prixTotal = 0;
 
         private void btnNouvelleRecette_Click(object sender, EventArgs e)
         {
             NewPizzaForm newPizzaForm = new NewPizzaForm();
             newPizzaForm.ShowDialog();
-            listBoxPizza.Items.Clear();            
-            listBoxPizza.Items.AddRange(DAL.PizzasAImporter.ToArray());  
+            listBoxPizza.Items.Clear();
+            listBoxPizza.Items.AddRange(DAL.PizzasAImporter.ToArray());
         }
 
         private void btnDetailPizza_Click(object sender, EventArgs e)
@@ -55,8 +47,6 @@ namespace Pizza2
             if (listBoxBoisson.Items.Count > 0) listBoxBoisson.SelectedIndex = 0;
         }
 
-        
-
         private void btnNouvelleBoisson_Click(object sender, EventArgs e)
         {
             NewBoissonForm newBoissonForm = new NewBoissonForm();
@@ -74,17 +64,17 @@ namespace Pizza2
                 while (LoginForm.essai > 0 && result == DialogResult.No)
                 {
                     result = loginForm.ShowDialog();
-                    
+
                     if (result == DialogResult.OK)
                     {
                         loginForm.Close();
                     }
-                }      
+                }
         }
 
         private void btnAjouterPizza_Click(object sender, EventArgs e)
-        {            
-            PizzaCommandee pizzaAjoute = new PizzaCommandee(((Pizza)listBoxPizza.SelectedItem).Nom, ((Pizza)listBoxPizza.SelectedItem).Prix);            
+        {
+            PizzaCommandee pizzaAjoute = new PizzaCommandee(((Pizza)listBoxPizza.SelectedItem).Nom, ((Pizza)listBoxPizza.SelectedItem).Prix);
             listBoxPizza.ClearSelected();
 
             if (radioButtonSmall.Checked == true)
@@ -96,7 +86,7 @@ namespace Pizza2
             if (radioButtonMedium.Checked == true)
             {
                 pizzaAjoute.Taille = "medium";
-                pizzaAjoute.Prix += 2;                
+                pizzaAjoute.Prix += 2;
             }
 
             if (radioButtonLarge.Checked == true)
@@ -147,13 +137,12 @@ namespace Pizza2
             radioButtonMedium.Checked = true;
 
             if (listBoxPizza.Items.Count > 0) listBoxPizza.SelectedIndex = 0;
-            
         }
 
         private void btnAjouterBoisson_Click(object sender, EventArgs e)
         {
             Boisson boissonAjoute = new Boisson(((Boisson)listBoxBoisson.SelectedItem).Nom, ((Boisson)listBoxBoisson.SelectedItem).Prix);
-            
+
             listeProduits.Add(boissonAjoute);
             listBoxBoisson.ClearSelected();
             listBoxRecapCommande.Items.Add(boissonAjoute);
@@ -177,7 +166,6 @@ namespace Pizza2
             {
                 MessageBox.Show("Selectionner un élément à supprimer", "Erreur");
             }
-
         }
 
         private void btnValiderCommande_Click(object sender, EventArgs e)
@@ -215,7 +203,7 @@ namespace Pizza2
 
             prixTotal += nouvelleCommande.PrixCommande;
 
-            this.Text = $"{Program.userName} + nombre de commandes : {listeCommandes.Count} prix total : {prixTotal}";
+            this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {listeCommandes.Count} - Prix total : {prixTotal}";
         }
 
         private void listBoxHistoCdes_SelectedIndexChanged(object sender, EventArgs e)
@@ -230,22 +218,22 @@ namespace Pizza2
             txtHistoTel.Text = "";
             txtHistoPrix.Text = "";
 
-            if (listBoxHistoCdes.SelectedIndex >=0)
-            { 
-            txtHistoNom.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.NomClient;
-            txtHistoPrenom.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.PrenomClient;
-            txtHistoAdresse1.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.Adresse1Client;
-            txtHistoAdresse2.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.Adresse2Client;
-            txtHistoCP.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.CPClient;
-            txtHistoVille.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.VilleClient;
-            txtHistoTel.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.TelClient;
-
-            foreach (Produit produit in ((Commande)listBoxHistoCdes.SelectedItem).Contenu)
+            if (listBoxHistoCdes.SelectedIndex >= 0)
             {
-                listBoxHistoContenuCde.Items.Add(produit);
-            }
+                txtHistoNom.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.NomClient;
+                txtHistoPrenom.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.PrenomClient;
+                txtHistoAdresse1.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.Adresse1Client;
+                txtHistoAdresse2.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.Adresse2Client;
+                txtHistoCP.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.CPClient;
+                txtHistoVille.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.VilleClient;
+                txtHistoTel.Text = ((Commande)listBoxHistoCdes.SelectedItem).Client.TelClient;
 
-            txtHistoPrix.Text = ((Commande)listBoxHistoCdes.SelectedItem).PrixCommande.ToString();
+                foreach (Produit produit in ((Commande)listBoxHistoCdes.SelectedItem).Contenu)
+                {
+                    listBoxHistoContenuCde.Items.Add(produit);
+                }
+
+                txtHistoPrix.Text = ((Commande)listBoxHistoCdes.SelectedItem).PrixCommande.ToString();
             }
         }
         private void buttonSuppCde_Click(object sender, EventArgs e)
@@ -258,8 +246,8 @@ namespace Pizza2
                 listBoxHistoCdes.Items.RemoveAt(index);
                 listeCommandes.RemoveAt(index);
                 listBoxHistoContenuCde.Items.Clear();
-                
-                this.Text = $"{Program.userName} + nombre de commandes : {listeCommandes.Count} - prix total : {prixTotal}";
+
+                this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {listeCommandes.Count} - Prix total : {prixTotal}";
             }
             catch
             {
@@ -268,7 +256,7 @@ namespace Pizza2
         }
         private void MainForm_Activated(object sender, EventArgs e)
         {
-            this.Text = $"{Program.userName} + nombre de commandes : {listeCommandes.Count} - prix total : {prixTotal}";
+            this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {listeCommandes.Count} - Prix total : {prixTotal}";
             if (Program.userName == "chef")
             {
                 btnNouvelleRecette.Visible = true;

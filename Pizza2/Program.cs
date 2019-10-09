@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pizza2
@@ -19,23 +16,20 @@ namespace Pizza2
             Application.SetCompatibleTextRenderingDefault(false);
             DAL.ImportPizza();
             DAL.ImportBoisson();
+            
             DialogResult result = DialogResult.No;            
             using (var loginForm = new LoginForm())
 
             while (LoginForm.essai > 0 && result == DialogResult.No)
             {
                 result = loginForm.ShowDialog();
-
-
+                    
                 if (result == DialogResult.OK)
                 {
-                    // login was successful
                     loginForm.Close();
                     Application.Run(new MainForm());
-
                 }
             }
-
         }
     }
 }

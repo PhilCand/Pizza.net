@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MENU>
+  <BOISSON Nom="Coca Cola" Prix="1.5" />
+  <BOISSON Nom="Sprite" Prix="1.5" />
+  <BOISSON Nom="Fanta Orange" Prix="1.5" />
+  <BOISSON Nom="Fanta Citron" Prix="1.5" />
+  <BOISSON Nom="Fanta Grenadine" Prix="1.5" />
+  <BOISSON Nom="Eau" Prix="1" />
+  <BOISSON Nom="Cacolac" Prix="1.5" />
+</MENU>

@@ -60,47 +60,47 @@ namespace Pizza2
             // 
             // txtNomPizza
             // 
-            this.txtNomPizza.Location = new System.Drawing.Point(132, 41);
+            this.txtNomPizza.Location = new System.Drawing.Point(92, 41);
             this.txtNomPizza.Name = "txtNomPizza";
-            this.txtNomPizza.Size = new System.Drawing.Size(100, 20);
+            this.txtNomPizza.Size = new System.Drawing.Size(140, 20);
             this.txtNomPizza.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 44);
+            this.label1.Location = new System.Drawing.Point(57, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Nom nouvelle pizza";
+            this.label1.Text = "Nom";
             // 
             // txtPrixPizza
             // 
-            this.txtPrixPizza.Location = new System.Drawing.Point(132, 67);
+            this.txtPrixPizza.Location = new System.Drawing.Point(92, 67);
             this.txtPrixPizza.Name = "txtPrixPizza";
-            this.txtPrixPizza.Size = new System.Drawing.Size(100, 20);
+            this.txtPrixPizza.Size = new System.Drawing.Size(57, 20);
             this.txtPrixPizza.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 70);
+            this.label2.Location = new System.Drawing.Point(62, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 13);
+            this.label2.Size = new System.Drawing.Size(24, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Prix nouvelle pizza";
+            this.label2.Text = "Prix";
             // 
             // txtIngredient
             // 
-            this.txtIngredient.Location = new System.Drawing.Point(132, 121);
+            this.txtIngredient.Location = new System.Drawing.Point(92, 121);
             this.txtIngredient.Name = "txtIngredient";
-            this.txtIngredient.Size = new System.Drawing.Size(100, 20);
+            this.txtIngredient.Size = new System.Drawing.Size(140, 20);
             this.txtIngredient.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(72, 124);
+            this.label3.Location = new System.Drawing.Point(32, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 2;
@@ -122,7 +122,7 @@ namespace Pizza2
             this.listBoxIngredients.Location = new System.Drawing.Point(257, 41);
             this.listBoxIngredients.Name = "listBoxIngredients";
             this.listBoxIngredients.Size = new System.Drawing.Size(131, 186);
-            this.listBoxIngredients.TabIndex = 3;
+            this.listBoxIngredients.TabIndex = 8;
             // 
             // listBoxListePizza
             // 
@@ -130,14 +130,14 @@ namespace Pizza2
             this.listBoxListePizza.Location = new System.Drawing.Point(505, 72);
             this.listBoxListePizza.Name = "listBoxListePizza";
             this.listBoxListePizza.Size = new System.Drawing.Size(131, 186);
-            this.listBoxListePizza.TabIndex = 3;
+            this.listBoxListePizza.TabIndex = 6;
             // 
             // btnSuppPizza
             // 
             this.btnSuppPizza.Location = new System.Drawing.Point(504, 264);
             this.btnSuppPizza.Name = "btnSuppPizza";
             this.btnSuppPizza.Size = new System.Drawing.Size(131, 23);
-            this.btnSuppPizza.TabIndex = 5;
+            this.btnSuppPizza.TabIndex = 7;
             this.btnSuppPizza.Text = "Supprimer pizza";
             this.btnSuppPizza.UseVisualStyleBackColor = true;
             this.btnSuppPizza.Click += new System.EventHandler(this.btnSuppPizza_Click);
@@ -184,7 +184,7 @@ namespace Pizza2
             this.btnRetour.Location = new System.Drawing.Point(560, 321);
             this.btnRetour.Name = "btnRetour";
             this.btnRetour.Size = new System.Drawing.Size(75, 23);
-            this.btnRetour.TabIndex = 6;
+            this.btnRetour.TabIndex = 5;
             this.btnRetour.Text = "Retour";
             this.btnRetour.UseVisualStyleBackColor = true;
             this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
@@ -199,7 +199,9 @@ namespace Pizza2
             this.Controls.Add(this.label6);
             this.Controls.Add(this.listBoxListePizza);
             this.Controls.Add(this.btnSuppPizza);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "NewPizzaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Getion des pizzas";
             this.Load += new System.EventHandler(this.NewPizzaForm_Load);
             this.groupBox1.ResumeLayout(false);

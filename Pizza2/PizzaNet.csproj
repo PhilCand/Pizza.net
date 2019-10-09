@@ -115,6 +115,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BoissonsData.xml" />
     <Content Include="PizzasData.xml">
       <SubType>Designer</SubType>
     </Content>

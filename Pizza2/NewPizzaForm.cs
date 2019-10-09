@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pizza2
@@ -31,7 +25,8 @@ namespace Pizza2
             {
                 int index = listBoxListePizza.SelectedIndex;
                 DAL.PizzasAImporter.RemoveAt(index);
-                listBoxListePizza.Items.Remove(listBoxListePizza.SelectedItem);                
+                listBoxListePizza.Items.Remove(listBoxListePizza.SelectedItem);
+                
             }
             catch
             {
@@ -40,7 +35,8 @@ namespace Pizza2
         }
 
         private void btnRetour_Click(object sender, EventArgs e)
-        {            
+        {
+            DAL.ExportPizzasXML();
             this.Close();
         }
 
@@ -51,6 +47,7 @@ namespace Pizza2
             listBoxIngredients.Items.Add(ingredient);
 
             txtIngredient.Clear();
+            txtIngredient.Select();
         }
         
         private void btnCreerPizza_Click(object sender, EventArgs e)
@@ -73,6 +70,7 @@ namespace Pizza2
             {
                 MessageBox.Show("Il manque des informations", "Erreur");
             }
+
         }
     }
 }
