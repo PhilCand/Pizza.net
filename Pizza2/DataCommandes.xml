@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<ArrayOfCommande xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Commande>
+    <PizzaCommandee>
+      <Nom>QUEEN</Nom>
+      <Prix>10</Prix>
+      <Ingredients />
+      <Taille>medium</Taille>
+      <Capres>false</Capres>
+      <Olives>false</Olives>
+      <Anchois>false</Anchois>
+      <Oeuf>false</Oeuf>
+      <Supplement />
+    </PizzaCommandee>
+    <Client>
+      <NomClient />
+      <PrenomClient />
+      <Adresse1Client />
+      <Adresse2Client />
+      <CPClient />
+      <VilleClient />
+      <TelClient />
+    </Client>
+    <Numero>1</Numero>
+    <PrixCommande>10</PrixCommande>
+  </Commande>
+  <Commande>
+    <PizzaCommandee>
+      <Nom>MONTAGNARDE</Nom>
+      <Prix>11</Prix>
+      <Ingredients />
+      <Taille>medium</Taille>
+      <Capres>false</Capres>
+      <Olives>false</Olives>
+      <Anchois>false</Anchois>
+      <Oeuf>false</Oeuf>
+      <Supplement />
+    </PizzaCommandee>
+    <Client>
+      <NomClient />
+      <PrenomClient />
+      <Adresse1Client />
+      <Adresse2Client />
+      <CPClient />
+      <VilleClient />
+      <TelClient />
+    </Client>
+    <Numero>3</Numero>
+    <PrixCommande>11</PrixCommande>
+  </Commande>
+  <Commande>
+    <PizzaCommandee>
+      <Nom>QUEEN</Nom>
+      <Prix>10</Prix>
+      <Ingredients />
+      <Taille>medium</Taille>
+      <Capres>false</Capres>
+      <Olives>false</Olives>
+      <Anchois>false</Anchois>
+      <Oeuf>false</Oeuf>
+      <Supplement />
+    </PizzaCommandee>
+    <Client>
+      <NomClient />
+      <PrenomClient />
+      <Adresse1Client />
+      <Adresse2Client />
+      <CPClient />
+      <VilleClient />
+      <TelClient />
+    </Client>
+    <Numero>4</Numero>
+    <PrixCommande>10</PrixCommande>
+  </Commande>
+</ArrayOfCommande>

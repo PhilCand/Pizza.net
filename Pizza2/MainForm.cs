@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Pizza2
 {
@@ -14,7 +17,6 @@ namespace Pizza2
         }
 
         static List<Produit> listeProduits = new List<Produit>();
-        static List<Commande> listeCommandes = new List<Commande>();
         static float prixTotal = 0;
 
         private void btnNouvelleRecette_Click(object sender, EventArgs e)
@@ -171,23 +173,28 @@ namespace Pizza2
         private void btnValiderCommande_Click(object sender, EventArgs e)
         {
             Client nouveauClient = new Client();
+
             nouveauClient.NomClient = txtNomClient.Text;
-            txtNomClient.Text = "";
             nouveauClient.PrenomClient = txtPrenomClient.Text;
-            txtPrenomClient.Text = "";
             nouveauClient.Adresse1Client = txtAdresse1.Text;
-            txtAdresse1.Text = "";
             nouveauClient.Adresse2Client = txtAdresse2.Text;
-            txtAdresse2.Text = "";
             nouveauClient.CPClient = txtCP.Text;
-            txtCP.Text = "";
             nouveauClient.VilleClient = txtVille.Text;
-            txtVille.Text = "";
             nouveauClient.TelClient = txtTel.Text;
-            txtTel.Text = "";
+
+
+            foreach (var box in groupBox4.Controls.OfType<TextBox>())
+            {
+                box.Text = "";
+            }
+
             txtTotalCdeEnCours.Text = "0";
 
             Commande nouvelleCommande = new Commande(nouveauClient, listeProduits);
+
+            if (DAL.listeCommandes.Count == 0) nouvelleCommande.Numero = 1;
+            else nouvelleCommande.Numero = 1 + DAL.listeCommandes[DAL.listeCommandes.Count - 1].Numero;
+            
 
             foreach (Produit produit in listeProduits)
             {
@@ -195,15 +202,16 @@ namespace Pizza2
             }
 
             listBoxHistoCdes.Items.Add(nouvelleCommande);
-            listeCommandes.Add(nouvelleCommande);
+            DAL.listeCommandes.Add(nouvelleCommande);
+            DAL.ExportCommande(DAL.listeCommandes);
 
             listBoxRecapCommande.Items.Clear();
+            
             listeProduits.Clear();
-
 
             prixTotal += nouvelleCommande.PrixCommande;
 
-            this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {listeCommandes.Count} - Prix total : {prixTotal}";
+            this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {DAL.listeCommandes.Count} - Prix total : {prixTotal}";
         }
 
         private void listBoxHistoCdes_SelectedIndexChanged(object sender, EventArgs e)
@@ -241,13 +249,14 @@ namespace Pizza2
             try
             {
                 int index = listBoxHistoCdes.SelectedIndex;
-                prixTotal -= listeCommandes[index].PrixCommande;
+                prixTotal -= DAL.listeCommandes[index].PrixCommande;
                 listBoxHistoCdes.ClearSelected();
                 listBoxHistoCdes.Items.RemoveAt(index);
-                listeCommandes.RemoveAt(index);
+                DAL.listeCommandes.RemoveAt(index);
                 listBoxHistoContenuCde.Items.Clear();
+                DAL.ExportCommande(DAL.listeCommandes);
 
-                this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {listeCommandes.Count} - Prix total : {prixTotal}";
+                this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {DAL.listeCommandes.Count} - Prix total : {prixTotal}";
             }
             catch
             {
@@ -256,7 +265,7 @@ namespace Pizza2
         }
         private void MainForm_Activated(object sender, EventArgs e)
         {
-            this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {listeCommandes.Count} - Prix total : {prixTotal}";
+            this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {DAL.listeCommandes.Count} - Prix total : {prixTotal}";
             if (Program.userName == "chef")
             {
                 btnNouvelleRecette.Visible = true;

@@ -3,30 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Pizza2
 {
-    class PizzaCommandee : Pizza
+    [XmlType]
+    public class PizzaCommandee : Pizza
     {
-        private string _taille;
-        private bool _capres = false;
-        private bool _olives = false;
-        private bool _anchois = false;
-        private bool _oeuf = false;
-        private string _supplement;
+        
+        public string Taille { get; set; }        
+        public bool Capres { get; set; }        
+        public bool Olives { get; set; }   
+        public bool Anchois { get; set; }
+        public bool Oeuf { get; set; }
 
-        public string Taille { get => _taille; set => _taille = value; }
-        public bool Capres { get => _capres; set => _capres = value; }
-        public bool Olives { get => _olives; set => _olives = value; }
-        public bool Anchois { get => _anchois; set => _anchois = value; }
-        public bool Oeuf { get => _oeuf; set => _oeuf = value; }
-        public string Supplement { get => _supplement; set => _supplement = value; }
+        public string Supplement { get; set; }
 
         public PizzaCommandee(string nom, float prix) : base(nom, prix)
         {
             Supplement = "";
         }
 
+        public PizzaCommandee()
+        {
+        }
 
         public override string ToString()
         {

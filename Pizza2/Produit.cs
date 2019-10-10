@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Pizza2
 {
-    class Produit
+    [XmlType]
+    public class Produit
     {
-        private string _nom;
-        private float _prix;
+        public string Nom { get; set; }
 
-        public string Nom { get => _nom; set => _nom = value; }
-        public float Prix { get => _prix; set => _prix = value; }
+        public float Prix { get; set; }
 
         public Produit(string nom, float prix)
         {
             Nom = nom;
             Prix = prix;
+        }
+
+        public Produit()
+        {
         }
     }
 }

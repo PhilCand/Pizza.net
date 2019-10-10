@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Pizza2
 {
-    class Ingredient
+    [XmlType]
+    public class Ingredient
     {
         private string _nom;
                 
@@ -15,6 +17,10 @@ namespace Pizza2
         public Ingredient(string nom)
         {
             Nom = nom;
+        }
+
+        public Ingredient()
+        {
         }
 
         public override string ToString()

@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace Pizza2
 {
@@ -7,6 +10,7 @@ namespace Pizza2
     {
         public static List<Pizza> PizzasAImporter = new List<Pizza>();
         public static List<Boisson> BoissonsAImporter = new List<Boisson>();
+        public static List<Commande> listeCommandes = new List<Commande>();
 
         public static void ImportPizza()
         {
@@ -75,7 +79,25 @@ namespace Pizza2
             }
             BoissonsData.Save(@"..\..\BoissonsData.xml");
         }
-        
+
+        public static void ExportCommande(List<Commande> listeCommande)
+        {
+
+            XmlAttributeOverrides over = new XmlAttributeOverrides();
+            XmlAttributes myAttributes = new XmlAttributes();
+            XmlElementAttribute attr = new XmlElementAttribute();
+            attr.Type = typeof(PizzaCommandee); myAttributes.XmlElements.Add(attr);
+            attr = new XmlElementAttribute();
+            attr.Type = typeof(Boisson); myAttributes.XmlElements.Add(attr);
+            over.Add(typeof(Commande), "Contenu", myAttributes);
+
+            FileStream stream = new FileStream(@"..\..\DataCommandes.xml", FileMode.Create);
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Commande>), over);
+            serializer.Serialize(stream, listeCommande);
+            stream.Close();
+
+        }
+
     }
 }
 
