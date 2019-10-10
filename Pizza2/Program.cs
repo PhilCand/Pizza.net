@@ -16,6 +16,8 @@ namespace Pizza2
             Application.SetCompatibleTextRenderingDefault(false);
             DAL.ImportPizza();
             DAL.ImportBoisson();
+            DAL.ImportCommande();
+
             
             DialogResult result = DialogResult.No;            
             using (var loginForm = new LoginForm())

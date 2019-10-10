@@ -12,7 +12,7 @@ namespace Pizza2
 
         private void NewBoissonForm_Load(object sender, EventArgs e)
         {
-            listBoxListeBoissonsNew.Items.AddRange(DAL.BoissonsAImporter.ToArray());
+            listBoxListeBoissonsNew.Items.AddRange(DAL.ListeBoissons.ToArray());
             txtNomBoisson.Select();
         }
 
@@ -22,7 +22,7 @@ namespace Pizza2
             {
                 txtPrixBoisson.Text = txtPrixBoisson.Text.Replace('.', ',');
                 Boisson newBoisson = new Boisson(txtNomBoisson.Text, float.Parse(txtPrixBoisson.Text));
-                DAL.BoissonsAImporter.Add(newBoisson);
+                DAL.ListeBoissons.Add(newBoisson);
                 listBoxListeBoissonsNew.Items.Add(newBoisson);
                 txtNomBoisson.Clear();
                 txtPrixBoisson.Clear();
@@ -39,7 +39,7 @@ namespace Pizza2
             try
             {
                 int index = listBoxListeBoissonsNew.SelectedIndex;
-                DAL.BoissonsAImporter.RemoveAt(index);
+                DAL.ListeBoissons.RemoveAt(index);
                 listBoxListeBoissonsNew.Items.Remove(listBoxListeBoissonsNew.SelectedItem);
                 
             }

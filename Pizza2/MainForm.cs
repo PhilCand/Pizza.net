@@ -24,7 +24,7 @@ namespace Pizza2
             NewPizzaForm newPizzaForm = new NewPizzaForm();
             newPizzaForm.ShowDialog();
             listBoxPizza.Items.Clear();
-            listBoxPizza.Items.AddRange(DAL.PizzasAImporter.ToArray());
+            listBoxPizza.Items.AddRange(DAL.ListePizzas.ToArray());
         }
 
         private void btnDetailPizza_Click(object sender, EventArgs e)
@@ -34,12 +34,12 @@ namespace Pizza2
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            foreach (Pizza pizza in DAL.PizzasAImporter)
+            foreach (Pizza pizza in DAL.ListePizzas)
             {
                 listBoxPizza.Items.Add(pizza);
             }
 
-            foreach (Boisson boisson in DAL.BoissonsAImporter)
+            foreach (Boisson boisson in DAL.ListeBoissons)
             {
                 listBoxBoisson.Items.Add(boisson);
             }
@@ -47,6 +47,14 @@ namespace Pizza2
             if (listBoxPizza.Items.Count > 0) listBoxPizza.SelectedIndex = 0;
 
             if (listBoxBoisson.Items.Count > 0) listBoxBoisson.SelectedIndex = 0;
+
+            foreach (Commande commande in DAL.ListeCommandes)
+            {
+                listBoxHistoCdes.Items.Add(commande);
+                prixTotal += commande.PrixCommande;
+            }
+
+
         }
 
         private void btnNouvelleBoisson_Click(object sender, EventArgs e)
@@ -54,7 +62,7 @@ namespace Pizza2
             NewBoissonForm newBoissonForm = new NewBoissonForm();
             newBoissonForm.ShowDialog();
             listBoxBoisson.Items.Clear();
-            listBoxBoisson.Items.AddRange(DAL.BoissonsAImporter.ToArray());
+            listBoxBoisson.Items.AddRange(DAL.ListeBoissons.ToArray());
         }
 
         private void changerUtilisateurToolStripMenuItem_Click(object sender, EventArgs e)
@@ -192,8 +200,8 @@ namespace Pizza2
 
             Commande nouvelleCommande = new Commande(nouveauClient, listeProduits);
 
-            if (DAL.listeCommandes.Count == 0) nouvelleCommande.Numero = 1;
-            else nouvelleCommande.Numero = 1 + DAL.listeCommandes[DAL.listeCommandes.Count - 1].Numero;
+            if (DAL.ListeCommandes.Count == 0) nouvelleCommande.Numero = 1;
+            else nouvelleCommande.Numero = 1 + DAL.ListeCommandes[DAL.ListeCommandes.Count - 1].Numero;
             
 
             foreach (Produit produit in listeProduits)
@@ -202,8 +210,8 @@ namespace Pizza2
             }
 
             listBoxHistoCdes.Items.Add(nouvelleCommande);
-            DAL.listeCommandes.Add(nouvelleCommande);
-            DAL.ExportCommande(DAL.listeCommandes);
+            DAL.ListeCommandes.Add(nouvelleCommande);
+            DAL.ExportCommande(DAL.ListeCommandes);
 
             listBoxRecapCommande.Items.Clear();
             
@@ -211,7 +219,7 @@ namespace Pizza2
 
             prixTotal += nouvelleCommande.PrixCommande;
 
-            this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {DAL.listeCommandes.Count} - Prix total : {prixTotal}";
+            this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {DAL.ListeCommandes.Count} - Prix total : {prixTotal}";
         }
 
         private void listBoxHistoCdes_SelectedIndexChanged(object sender, EventArgs e)
@@ -249,14 +257,14 @@ namespace Pizza2
             try
             {
                 int index = listBoxHistoCdes.SelectedIndex;
-                prixTotal -= DAL.listeCommandes[index].PrixCommande;
+                prixTotal -= DAL.ListeCommandes[index].PrixCommande;
                 listBoxHistoCdes.ClearSelected();
                 listBoxHistoCdes.Items.RemoveAt(index);
-                DAL.listeCommandes.RemoveAt(index);
+                DAL.ListeCommandes.RemoveAt(index);
                 listBoxHistoContenuCde.Items.Clear();
-                DAL.ExportCommande(DAL.listeCommandes);
+                DAL.ExportCommande(DAL.ListeCommandes);
 
-                this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {DAL.listeCommandes.Count} - Prix total : {prixTotal}";
+                this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {DAL.ListeCommandes.Count} - Prix total : {prixTotal}";
             }
             catch
             {
@@ -265,7 +273,7 @@ namespace Pizza2
         }
         private void MainForm_Activated(object sender, EventArgs e)
         {
-            this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {DAL.listeCommandes.Count} - Prix total : {prixTotal}";
+            this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {DAL.ListeCommandes.Count} - Prix total : {prixTotal}";
             if (Program.userName == "chef")
             {
                 btnNouvelleRecette.Visible = true;

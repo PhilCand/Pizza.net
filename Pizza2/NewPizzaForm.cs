@@ -14,7 +14,7 @@ namespace Pizza2
         private void NewPizzaForm_Load(object sender, EventArgs e)
         {
 
-            listBoxListePizza.Items.AddRange(DAL.PizzasAImporter.ToArray());
+            listBoxListePizza.Items.AddRange(DAL.ListePizzas.ToArray());
                 
             txtNomPizza.Select();
         }
@@ -24,7 +24,7 @@ namespace Pizza2
             try
             {
                 int index = listBoxListePizza.SelectedIndex;
-                DAL.PizzasAImporter.RemoveAt(index);
+                DAL.ListePizzas.RemoveAt(index);
                 listBoxListePizza.Items.Remove(listBoxListePizza.SelectedItem);
                 
             }
@@ -61,7 +61,7 @@ namespace Pizza2
                 listBoxIngredients.Items.CopyTo(ingredientsnewPizza, 0);
                 newPizza.Ingredients = ingredientsnewPizza.ToList<Ingredient>();
                 listBoxListePizza.Items.Add(newPizza);
-                DAL.PizzasAImporter.Add(newPizza);
+                DAL.ListePizzas.Add(newPizza);
                 listBoxIngredients.Items.Clear();
                 txtNomPizza.Clear();
                 txtPrixPizza.Clear();

@@ -30,7 +30,7 @@ namespace Pizza2
 
         public override string ToString()
         {
-            return $"{Nom} - {Taille} {Supplement} - {Prix}";
+            return $"{Nom} {Taille} {Supplement} / {Prix} €";
         }
 
 
