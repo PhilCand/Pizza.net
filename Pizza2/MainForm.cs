@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -25,6 +26,7 @@ namespace Pizza2
             newPizzaForm.ShowDialog();
             listBoxPizza.Items.Clear();
             listBoxPizza.Items.AddRange(DAL.ListePizzas.ToArray());
+            listBoxPizza.SelectedIndex = 0;
         }
 
         private void btnDetailPizza_Click(object sender, EventArgs e)
@@ -53,8 +55,6 @@ namespace Pizza2
                 listBoxHistoCdes.Items.Add(commande);
                 prixTotal += commande.PrixCommande;
             }
-
-
         }
 
         private void btnNouvelleBoisson_Click(object sender, EventArgs e)
@@ -63,6 +63,7 @@ namespace Pizza2
             newBoissonForm.ShowDialog();
             listBoxBoisson.Items.Clear();
             listBoxBoisson.Items.AddRange(DAL.ListeBoissons.ToArray());
+            listBoxBoisson.SelectedIndex = 0;
         }
 
         private void changerUtilisateurToolStripMenuItem_Click(object sender, EventArgs e)
@@ -174,7 +175,7 @@ namespace Pizza2
             }
             catch
             {
-                MessageBox.Show("Selectionner un élément à supprimer", "Erreur");
+                MessageBox.Show("Selectionner un élément à supprimer", "Erreur",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -219,7 +220,7 @@ namespace Pizza2
 
             prixTotal += nouvelleCommande.PrixCommande;
 
-            this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {DAL.ListeCommandes.Count} - Prix total : {prixTotal}";
+            this.Text = $"Pizza.net - Utilisateur : {Program.userName} - Nombre de commandes : {DAL.ListeCommandes.Count} - Prix total : {prixTotal}";
         }
 
         private void listBoxHistoCdes_SelectedIndexChanged(object sender, EventArgs e)
@@ -264,7 +265,7 @@ namespace Pizza2
                 listBoxHistoContenuCde.Items.Clear();
                 DAL.ExportCommande(DAL.ListeCommandes);
 
-                this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {DAL.ListeCommandes.Count} - Prix total : {prixTotal}";
+                this.Text = $"Pizza.net - Utilisateur : {Program.userName} - Nombre de commandes : {DAL.ListeCommandes.Count} - Prix total : {prixTotal}";
             }
             catch
             {
@@ -273,7 +274,7 @@ namespace Pizza2
         }
         private void MainForm_Activated(object sender, EventArgs e)
         {
-            this.Text = $"Utilisateur : {Program.userName} - Nombre de commandes : {DAL.ListeCommandes.Count} - Prix total : {prixTotal}";
+            this.Text = $"Pizza.net - Utilisateur : {Program.userName} - Nombre de commandes : {DAL.ListeCommandes.Count} - Prix total : {prixTotal}";
             if (Program.userName == "chef")
             {
                 btnNouvelleRecette.Visible = true;
@@ -292,6 +293,34 @@ namespace Pizza2
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result;
+            result = MessageBox.Show("Voulez vous vraiment quitter ?", "Quitter", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No) e.Cancel = true;
+        }
+
+        private void tabControlSaisiCde_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+            //if the item state is selected them change the back color 
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                e = new DrawItemEventArgs(e.Graphics,
+                                          e.Font,                                          
+                                          e.Bounds,
+                                          e.Index,
+                                          e.State ^ DrawItemState.Selected,
+                                          e.ForeColor,
+                                          Color.PaleTurquoise);//Choose the color
+
+            // Draw the background of the ListBox control for each item.
+            e.DrawBackground();
+            // Draw the current item text
+            e.Graphics.DrawString(((ListBox)sender).Items[e.Index].ToString(), e.Font, Brushes.SaddleBrown, e.Bounds, StringFormat.GenericDefault);
+            // If the ListBox has focus, draw a focus rectangle around the selected item.
+            e.DrawFocusRectangle();
         }
     }
 }

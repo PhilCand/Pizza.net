@@ -24,7 +24,7 @@ namespace Pizza2
         
         public override string ToString()
         {
-            return Nom;
+            return $"{Nom} / {Prix} €";
         }
 
         public string AfficherIngredients()
